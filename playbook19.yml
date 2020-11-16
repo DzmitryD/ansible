@@ -1,0 +1,24 @@
+---
+ - name: warning
+   hosts: ALL_LINUX
+   become: yes
+   any_errors_fatal: true
+
+   tasks:
+   - name: task number1
+     apt: name=treeee state=latest
+     ignore_errors: yes
+
+   - name: tack_number2
+     shell: ls /home
+     register: results
+     # failed_when: results.rc == 0
+     #  failed_when: "'Hello' in results.stdout"
+
+   - debug:
+           var: results
+
+   - name: tasj_number3
+     shell: echo privet mir!
+
+           

@@ -1,0 +1,9 @@
+---
+- name: Install Apache with role to all my server
+  hosts: all
+  become: yes
+
+  roles:
+          - deploy_apache_web
+
+

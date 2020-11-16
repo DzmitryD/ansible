@@ -1,0 +1,23 @@
+---
+- name: install apache to my all server
+  hosts: all
+  become: yes
+
+  vars:
+    source_file: /home/ibaadmin/docker/index.html
+    dist_file: /var/www/html
+
+  tasks:
+  - name: install apache web server
+    apt: name=apache2 state=latest
+
+  - name: copy my homepage to server
+    copy: src={{ source_file }} dest={{ dist_file }} mode=0555
+    notify: restart Apache
+
+  - name: start webserver and make it enable on boot
+    service: name=apache2 state=started enabled=yes
+
+  handlers:
+  - name: restart apache
+    service: name=apache2 state=restarted

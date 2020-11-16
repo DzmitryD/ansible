@@ -1,0 +1,7 @@
+[STAGING]
+linux3  ansible_host=172.20.4.0
+[PROD]
+DNS64	ansible_host=172.20.15.36
+[ALL_LINUX:children]
+STAGING
+PROD

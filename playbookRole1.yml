@@ -1,0 +1,7 @@
+---
+- name: Install Apache with role to all my server
+  hosts: "{{ MYHOSTS }}"
+  become: yes
+
+  roles:
+          - deploy_apache_web_1

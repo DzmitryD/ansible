@@ -1,0 +1,4 @@
+---
+ansible_user                 : ibaadmin
+ansible_ssh_private_key_file : /home/ibaadmin/.ssh/id_rsa
+ansible_sudo_pass            : Pass#813

@@ -1,0 +1,13 @@
+---
+- name: take information from server
+  hosts: all
+  become: yes
+
+  vars:
+    source_folder: /home/ibaadmin/testansible
+    dist_folder: /home/ibaadmin/ANS
+
+  tasks:
+  - name: copy my homepage to server
+    copy: src={{ item }} dest={{ dist_folder }} mode=0555
+    with_fileglob: "{{ source_folder }}/*.*"

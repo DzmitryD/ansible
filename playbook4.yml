@@ -1,0 +1,14 @@
+---
+- name: make dir to our servers
+  hosts: all
+  become: yes
+
+  tasks:
+ 
+  - block:
+     - shell: mkdir /home/linux3
+    when: ansible_hostname == "linux3"
+ 
+  - block:  
+     - shell: mkdir /home/DNSblabla
+    when: ansible_hostname == "dns64"

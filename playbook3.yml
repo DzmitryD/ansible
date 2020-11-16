@@ -1,0 +1,15 @@
+---
+- name: take information from server ping to google
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - debug:
+      var: ansible_distribution
+
+  - shell: ping 8.8.8.8 -c 4
+    register: results
+
+  - debug:
+      var: results.stdout_lines

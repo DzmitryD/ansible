@@ -1,0 +1,8 @@
+---
+- name: Ansible create file with content example
+  copy:
+        dest: /home/includik/file1.txt
+        content: |
+         Text Line1, in feile1
+         Text Line2, {{ mytext }}
+  delegate_to: linux3

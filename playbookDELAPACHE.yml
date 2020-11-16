@@ -1,0 +1,9 @@
+---
+- name: DEL apache from my all server
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: del apache web server
+    apt: name=apache2 state=absent
+

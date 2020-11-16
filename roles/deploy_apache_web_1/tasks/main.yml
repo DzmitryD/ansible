@@ -1,0 +1,24 @@
+---
+# tasks file for deploy_apache_web_1
+  - block:
+     - name: install apache web server
+       apt: name=apache2 state=latest
+     - name: start webserver and make it enable on boot
+       service: name=apache2 state=started enabled=yes
+     - name: generate index html file
+       template: src=index.j2 dest={{ destin_folder }}/index.html mode=0555
+       notify: restart Apache
+    when: ansible_hostname == "linux3"
+
+  - block:
+     - name: install apache web server
+       apt: name=apache2 state=latest
+     - name: start webserver and make it enable on boot
+       service: name=apache2 state=started enabled=yes
+     - name: generate index html file
+       copy: src={{ item }} dest={{ destin_folder }} mode=0555
+       loop:
+         - "index.html"
+       notify: restart Apache
+    when: ansible_hostname == "dns64"
+    

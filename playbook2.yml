@@ -1,0 +1,16 @@
+---
+- name: take information from server
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - debug:
+      var: ansible_os_family
+      
+  - shell: uptime
+    register: results
+
+  - debug:
+      var: results.stdout
+
