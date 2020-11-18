@@ -1,4 +1,4 @@
 ---
 # handlers file for deploy_apache_web_1
-    - name: Restart apache
+    - name: restart Apache
       service: name=apache2 state=restarted
