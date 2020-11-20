@@ -8,7 +8,7 @@
      - name: generate index html file
        template: src=index.j2 dest={{ destin_folder }}/index.html mode=0555
        notify: restart Apache
-    when: ansible_hostname == "linux3"
+    when: ansible_hostname == "ip-172-31-29-30","linux3", "ip-172-31-23-88"
 
   - block:
      - name: install apache web server
@@ -21,4 +21,3 @@
          - "index.html"
        notify: restart Apache
     when: ansible_hostname == "dns64"
-    
