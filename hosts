@@ -2,7 +2,7 @@
 linux3  ansible_host=172.20.4.0
 [AWS]
 amazon  ansible_host=3.128.24.78
-amazon2 ansible_host=18.191.155.229
+amazon21 ansible_host=18.191.155.229
 [PROD]
 DNS64	ansible_host=172.20.15.36
 [ALL_LINUX:children]
